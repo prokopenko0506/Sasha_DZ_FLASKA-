@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Список курсов</h1>
+
+        {% for course in courses %}
+            <li>
+                {% if course.price > 0 %}
+                    style="color: darkred;"
+                {% endif %}
+            >
+                <strong>{{ loop.index }}. {{ course.title }}</strong><br>
+
+                Уровень: {{ course.level }}<br>
+
+                {% if course.price == 0 %}
+                    <strong>Бесплатно</strong><br>
+                {% else %}
+                    Цена: {{ course.price }}$<br>
+                {% endif %}
+
+                {% if course.level == "beginner" %}
+                    🟢 Подходит новичкам
+                {% elif course.level == "middle" %}
+                    🔵 Для продолжающих
+                {% endif %}
+            </li>
+            <br>
+        {% endfor %}
+     <p><strong>Доступно бесплатных курсов: {{ free_courses_count }}</strong></p>
+
+    <a href="/">На главную</a>
+
+</body>
+</html>

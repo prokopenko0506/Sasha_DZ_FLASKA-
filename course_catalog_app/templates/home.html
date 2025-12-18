@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Каталог курсов</h1>
+
+    <p>Добро пожаловать в каталог обучающих курсов по программированию.</p>
+
+    <p>Всего курсов: <strong>{{ courses_count }}</strong></p>
+
+    <a href="/courses">Перейти к списку курсов</a>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <form  method="POST">
+        <label>Имя:</label><br>
+        <label>
+        <input type="text" name="name">
+        </label><br>
+        {% if error %}
+          <p style="color: red; ">{{ error }}</p>
+        {% endif %}
+        <label>Email:</label><br>
+        <label>
+        <input type="text" name="email">
+        </label><br>
+        {% if error_2 %}
+          <p style="color: blue; ">{{ error_2 }}</p>
+        {% endif %}
+        <label>Cообщение:</label><br>
+        <label>
+        <textarea name="message"></textarea>
+        </label><br>
+        {% if error_3 %}
+          <p style="color: yellow; ">{{ error_3 }}</p>
+        {% endif %}
+        <button type="submit">Отправить!</button>
+         {% if re %}
+            <p style="color: green;">{{ re }}</p>
+         {% endif %}
+    </form>
+
+</body>
+</html>
